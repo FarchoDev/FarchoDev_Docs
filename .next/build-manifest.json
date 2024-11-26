@@ -15,11 +15,6 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -30,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/cursos/conventional-commits/modulo-2": [
+    "/documentacion/actividades-de-documentacion-y-entrega-de-software-en-procesos-de-implantacion/pruebas-y-actas-de-entrega": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/cursos/conventional-commits/modulo-2.js"
+      "static/chunks/pages/documentacion/actividades-de-documentacion-y-entrega-de-software-en-procesos-de-implantacion/pruebas-y-actas-de-entrega.js"
     ]
   },
   "ampFirstPages": []
