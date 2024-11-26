@@ -1,0 +1,202 @@
+# Módulo 8: Rebase y Otras Herramientas Avanzadas en Git
+
+En este módulo, profundizaremos en el uso avanzado del comando `git rebase` y exploraremos otras herramientas avanzadas en Git que te ayudarán a mantener un historial de commits limpio y a gestionar tu repositorio de manera más eficiente.
+
+## 8.1. Uso Avanzado de git rebase
+
+El comando `git rebase` se utiliza para reescribir el historial de commits en una rama. Esto puede ser útil para limpiar commits antes de fusionar una rama en la rama principal.
+
+### Rebase Interactivo
+
+El rebase interactivo (`git rebase -i`) te permite reescribir el historial de commits de una rama, ofreciendo opciones para reorganizar, combinar, modificar o eliminar commits.
+
+1. **Iniciar un Rebase Interactivo**
+
+   ```bash
+   git rebase -i HEAD~n
+   ```
+
+   Donde `n` es el número de commits que deseas revisar.
+
+2. **Seleccionar Acciones para los Commits**
+
+   En el editor que se abre, puedes seleccionar acciones para cada commit:
+
+   - `pick`: Mantiene el commit tal como está.
+   - `reword`: Cambia el mensaje del commit.
+   - `edit`: Pausa el rebase para permitir modificaciones al commit.
+   - `squash`: Combina el commit con el anterior.
+   - `fixup`: Combina el commit con el anterior, descartando el mensaje del commit.
+
+3. **Guardar y Salir**
+
+   Una vez que hayas seleccionado las acciones deseadas, guarda y cierra el editor. Git aplicará las acciones y pausará en caso de conflictos que necesiten resolución.
+
+### Rebase Automático
+
+El rebase automático te permite mover los commits de tu rama actual a la cima de otra rama, actualizando así tu trabajo con los cambios más recientes de la rama objetivo.
+
+1. **Iniciar un Rebase Automático**
+
+   ```bash
+   git checkout feature-branch
+   git rebase main
+   ```
+
+2. **Resolver Conflictos (si ocurren)**
+
+   Durante el rebase, Git pausará si encuentra conflictos. Resuelve los conflictos, agrega los archivos resueltos y continúa el rebase.
+
+   ```bash
+   git add <archivo-en-conflicto>
+   git rebase --continue
+   ```
+
+3. **Abortar un Rebase**
+
+   Si encuentras problemas durante el rebase y deseas abortar el proceso, puedes utilizar:
+
+   ```bash
+   git rebase --abort
+   ```
+
+## 8.2. cherry-pick
+
+El comando `git cherry-pick` te permite aplicar un commit específico de una rama a otra. Es útil para trasladar cambios individuales sin fusionar ramas completas.
+
+1. **Identificar el Commit a Cherry-Pick**
+
+   Utiliza `git log` para encontrar el hash del commit que deseas aplicar.
+
+   ```bash
+   git log
+   ```
+
+2. **Aplicar el Commit**
+
+   Cambia a la rama donde deseas aplicar el commit y utiliza `git cherry-pick`.
+
+   ```bash
+   git checkout main
+   git cherry-pick <commit-hash>
+   ```
+
+3. **Resolver Conflictos (si ocurren)**
+
+   Si hay conflictos durante el cherry-pick, resuélvelos de manera similar a un merge o rebase.
+
+## 8.3. git bisect
+
+El comando `git bisect` te ayuda a identificar commits problemáticos a través de una búsqueda binaria.
+
+1. **Iniciar git bisect**
+
+   ```bash
+   git bisect start
+   ```
+
+2. **Marcar el Commit Bueno y el Malo**
+
+   ```bash
+   git bisect bad <commit-malo>
+   git bisect good <commit-bueno>
+   ```
+
+3. **Realizar Pruebas y Marcar Commits**
+
+   Git checkout automáticamente en diferentes commits. Realiza pruebas y marca cada commit como bueno (`git bisect good`) o malo (`git bisect bad`).
+
+4. **Finalizar git bisect**
+
+   Una vez identificado el commit problemático, finaliza el proceso:
+
+   ```bash
+   git bisect reset
+   ```
+
+## 8.4. Stashing con git stash
+
+El comando `git stash` te permite guardar cambios temporales que no deseas cometer inmediatamente.
+
+1. **Guardar Cambios en Stash**
+
+   ```bash
+   git stash
+   ```
+
+2. **Listar Stashes**
+
+   ```bash
+   git stash list
+   ```
+
+3. **Aplicar un Stash**
+
+   ```bash
+   git stash apply <stash-id>
+   ```
+
+4. **Eliminar un Stash**
+
+   ```bash
+   git stash drop <stash-id>
+   ```
+
+## 8.5. Guardar y Aplicar Stashes
+
+El comando `git stash` es útil para guardar cambios temporales que no quieres cometer inmediatamente.
+
+1. **Guardar Cambios en el Stash**
+
+   ```bash
+   git stash
+   ```
+
+   Para agregar un mensaje descriptivo, usa:
+
+   ```bash
+   git stash save "mensaje descriptivo"
+   ```
+
+2. **Listar Stashes**
+
+   ```bash
+   git stash list
+   ```
+
+3. **Aplicar un Stash**
+
+   ```bash
+   git stash apply <stash@{n}>
+   ```
+
+   Donde `n` es el índice del stash en la lista.
+
+4. **Eliminar un Stash**
+
+   ```bash
+   git stash drop <stash@{n}>
+   ```
+
+   O para limpiar todos los stashes:
+
+   ```bash
+   git stash clear
+   ```
+
+5. **Aplicar y Eliminar un Stash**
+
+   ```bash
+   git stash pop <stash@{n}>
+   ```
+
+## Resumen
+
+En este módulo, hemos cubierto herramientas avanzadas en Git que te permiten gestionar y limpiar tu historial de commits, aplicar cambios específicos y manejar situaciones complejas:
+
+- **Rebase Avanzado:** Para reorganizar y limpiar tu historial de commits.
+- **Cherry-Pick:** Para aplicar cambios específicos de una rama a otra.
+- **Bisect:** Para identificar commits problemáticos.
+- **Stash:** Para guardar y recuperar cambios temporales.
+
+Estas herramientas avanzadas te permitirán mantener un flujo de trabajo eficiente y ordenado, incluso en proyectos grandes y complejos.

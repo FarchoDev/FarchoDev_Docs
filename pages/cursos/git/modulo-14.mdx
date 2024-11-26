@@ -1,0 +1,148 @@
+# Módulo 14: Solución de Problemas Avanzados
+
+En este módulo, aprenderás cómo abordar y resolver problemas avanzados que pueden surgir al trabajar con Git. Exploraremos técnicas y comandos que te ayudarán a diagnosticar y solucionar problemas comunes y no tan comunes en tus repositorios Git.
+
+## 14.1. Diagnóstico de Problemas
+
+### Uso de Git Status y Git Diff para Diagnóstico
+
+`git status` y `git diff` son herramientas esenciales para diagnosticar problemas en tu repositorio.
+
+- **Revisar el Estado del Repositorio**:
+
+  ```bash
+  git status
+  ```
+
+- **Ver las Diferencias en los Archivos Modificados**:
+
+  ```bash
+  git diff
+  ```
+
+### Resolución de Problemas con Git Fsck
+
+`git fsck` se utiliza para verificar la integridad de los objetos y la base de datos de Git.
+
+- **Verificar la Integridad del Repositorio**:
+
+  ```bash
+  git fsck
+  ```
+
+- **Recuperar Objetos Perdidos**:
+
+  ```bash
+  git fsck --lost-found
+  ```
+
+## 14.2. Solución de Problemas Comunes
+
+### Recuperar Branches y Commits Eliminados
+
+Si has eliminado una branch o commit accidentalmente, Git ofrece formas de recuperarlos.
+
+- **Recuperar una Branch Eliminada**:
+
+  ```bash
+  git reflog
+  git checkout -b nombre-de-branch <commit_id>
+  ```
+
+- **Recuperar Commits Perdidos**:
+
+  ```bash
+  git fsck --full
+  ```
+
+### Resolver Problemas de Conflictos
+
+Los conflictos pueden surgir al realizar merges, rebases o cherry-picks. Es importante saber cómo resolverlos.
+
+- **Identificar y Resolver Conflictos**:
+
+  ```bash
+  git status
+  # Edita los archivos en conflicto y resuélvelos
+  git add archivos-resueltos
+  git commit
+  ```
+
+## 14.3. Manejo de Historial y Reescritura de Commits
+
+### Uso de Git Rebase para Reescribir Historial
+
+`git rebase` puede ser usado para limpiar el historial de commits, combinando o reordenando commits.
+
+- **Rebase Interactivo**:
+
+  ```bash
+  git rebase -i HEAD~n
+  ```
+
+- **Combinar Commits**:
+
+  En el editor que se abre, cambia `pick` por `squash` o `fixup` para combinar commits.
+
+### Uso de Git Filter-Repo para Reescribir Historial en Masa
+
+`git filter-repo` es una herramienta poderosa para reescribir grandes partes del historial de commits.
+
+- **Eliminar Archivos Grandes del Historial**:
+
+  ```bash
+  git filter-repo --path archivo-grande --invert-paths
+  ```
+
+- **Renombrar Archivos en el Historial**:
+
+  ```bash
+  git filter-repo --path old/file/path --to new/file/path
+  ```
+
+## 14.4. Solución de Problemas de Rendimiento
+
+### Optimización del Repositorio con Git GC
+
+`git gc` (garbage collection) ayuda a optimizar el tamaño y la velocidad del repositorio.
+
+- **Ejecutar Git GC**:
+
+  ```bash
+  git gc
+  ```
+
+- **GC Agresivo**:
+
+  ```bash
+  git gc --aggressive
+  ```
+
+### Manejo de Repositorios Grandes
+
+Los repositorios grandes pueden ser lentos y difíciles de manejar. Existen técnicas para mejorar su rendimiento.
+
+- **Uso de Submódulos**:
+
+  Divide tu proyecto en varios submódulos.
+
+  ```bash
+  git submodule add https://github.com/usuario/submodulo.git
+  ```
+
+- **Clonar Solo Parte del Historial**:
+
+  ```bash
+  git clone --depth=1 https://github.com/usuario/repositorio.git
+  ```
+
+## Resumen
+
+En este módulo, hemos cubierto técnicas avanzadas para solucionar problemas en Git:
+
+- **Diagnóstico de Problemas**: Uso de `git status`, `git diff` y `git fsck`.
+- **Solución de Problemas Comunes**: Recuperación de branches y commits eliminados, resolución de conflictos.
+- **Manejo de Historial y Reescritura de Commits**: Uso de `git rebase` y `git filter-repo`.
+- **Solución de Problemas de Rendimiento**: Optimización con `git gc` y manejo de repositorios grandes.
+
+Estas técnicas te ayudarán a resolver problemas complejos y a mantener tus repositorios Git en buen estado, mejorando tu eficiencia y productividad al trabajar con Git.

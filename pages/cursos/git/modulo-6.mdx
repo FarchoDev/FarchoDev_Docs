@@ -1,0 +1,161 @@
+# Módulo 6: Colaboración con Git
+
+## 6.1. Flujo de trabajo en equipo
+
+El flujo de trabajo en equipo con Git implica seguir ciertas prácticas y utilizar ramas compartidas para gestionar y coordinar el trabajo de varios desarrolladores en un proyecto.
+
+### Buenas Prácticas
+
+Para mantener un flujo de trabajo ordenado y eficiente, sigue estas buenas prácticas:
+
+1. **Utiliza Nombres Descriptivos para las Ramas**
+   - Los nombres de las ramas deben ser descriptivos y reflejar la tarea o característica en la que se está trabajando. Ejemplos: `feature/nueva-funcionalidad`, `fix/correccion-bug-123`, `hotfix/ajuste-critico`.
+   - Esto facilita la comprensión del propósito de la rama para todos los miembros del equipo.
+
+2. **Realiza Commits Pequeños y Atómicos**
+   - Un commit atómico aborda un único cambio o tarea. Esto hace que los commits sean más fáciles de revisar y revertir si es necesario.
+   - Evita hacer commits grandes que abarquen múltiples cambios no relacionados.
+
+3. **Escribe Mensajes de Commit Claros y Detallados**
+   - Un buen mensaje de commit debe describir qué se ha cambiado y por qué. Esto es crucial para la revisión y el mantenimiento del código.
+   - Formato sugerido: `<tipo>(<área>): <descripción>`. Ejemplo: `fix(autenticación): corregir error en el proceso de inicio de sesión`.
+
+4. **Sincroniza Frecuentemente tu Trabajo**
+   - Antes de comenzar a trabajar, siempre realiza un `git pull` para obtener los últimos cambios del repositorio remoto.
+   - Subir tus cambios regularmente con `git push` ayuda a mantener el trabajo del equipo sincronizado.
+
+### Branches Compartidos
+
+Las ramas compartidas son utilizadas por varios miembros del equipo para trabajar en una característica común o una corrección específica. Aquí está cómo trabajar con branches compartidos:
+
+1. **Crear una Rama Compartida**
+
+   ```bash
+   git checkout -b nombre-de-la-rama
+   ```
+
+2. **Subir la Rama al Repositorio Remoto**
+
+   ```bash
+   git push origin nombre-de-la-rama
+   ```
+
+3. **Colaborar en la Rama**
+
+   Todos los miembros del equipo pueden realizar cambios en la misma rama compartida. Aquí hay algunos comandos clave:
+
+   - **Agregar Cambios:**
+     ```bash
+     git add <archivo>
+     ```
+
+   - **Hacer Commit de los Cambios:**
+     ```bash
+     git commit -m "Descripción del cambio"
+     ```
+
+   - **Subir los Cambios:**
+     ```bash
+     git push origin nombre-de-la-rama
+     ```
+
+4. **Revisar y Fusionar Cambios**
+
+   Cuando estés listo para integrar tus cambios en la rama principal del proyecto:
+
+   - **Crear un Pull Request (PR) en GitHub:**
+     - Ve al repositorio en GitHub.
+     - Selecciona la rama compartida.
+     - Haz clic en "Compare & pull request".
+     - Proporciona detalles sobre tus cambios y crea el PR.
+
+## 6.2. Contribuciones a Proyectos Open Source
+
+Contribuir a proyectos open source permite a los desarrolladores colaborar en proyectos públicos y mejorar sus habilidades. Aquí están los pasos clave para contribuir:
+
+### Forks
+
+Un fork es una copia personalizada de un repositorio open source bajo tu propia cuenta de GitHub. Puedes realizar cambios en tu fork sin afectar el proyecto original.
+
+1. **Hacer un Fork en GitHub**
+
+   - Ve al repositorio open source en GitHub.
+   - Haz clic en el botón "Fork" en la esquina superior derecha del repositorio.
+   - Esto creará una copia del repositorio en tu cuenta de GitHub.
+
+2. **Clonar tu Fork**
+
+   ```bash
+   git clone https://github.com/tu-usuario/proyecto.git
+   ```
+
+3. **Configurar Remotos**
+
+   - Por defecto, tu fork tendrá un remoto llamado `origin` que apunta a tu copia del repositorio.
+   - Puedes agregar un remoto adicional llamado `upstream` que apunte al repositorio original para mantenerte al día con los cambios.
+
+   ```bash
+   git remote add upstream https://github.com/usuario-original/proyecto.git
+   ```
+
+4. **Sincronizar tu Fork con el Upstream**
+
+   - **Fetch desde el Upstream:**
+     ```bash
+     git fetch upstream
+     ```
+
+   - **Merge los Cambios desde el Upstream:**
+     ```bash
+     git checkout main
+     git merge upstream/main
+     ```
+
+### Pull Requests
+
+Un Pull Request (PR) es una solicitud para fusionar los cambios que has realizado en tu fork con el repositorio original. Aquí está cómo crear un PR:
+
+1. **Realizar Cambios Locales**
+
+   - Crea una nueva rama en tu fork:
+     ```bash
+     git checkout -b nueva-funcionalidad
+     ```
+
+   - Realiza los cambios necesarios y haz commits:
+     ```bash
+     git add .
+     git commit -m "Descripción del cambio"
+     ```
+
+   - Sube los cambios a tu fork:
+     ```bash
+     git push origin nueva-funcionalidad
+     ```
+
+2. **Crear un Pull Request en GitHub**
+
+   - Ve a tu fork en GitHub.
+   - Selecciona la nueva rama que deseas fusionar.
+   - Haz clic en "Compare & pull request".
+   - Proporciona un título y una descripción detallada de tus cambios.
+   - Crea el PR.
+
+3. **Colaborar y Revisar**
+
+   - Otros colaboradores revisarán tus cambios y podrían solicitar modificaciones.
+   - Comunícate con los mantenedores del proyecto y realiza ajustes según sea necesario.
+
+## Resumen
+
+En este módulo, hemos profundizado en:
+
+- **Flujo de trabajo en equipo:**
+  - Buenas prácticas para mantener un flujo de trabajo ordenado y eficiente.
+  - Uso de branches compartidos para colaborar en características y correcciones específicas.
+
+- **Contribuciones a proyectos open source:**
+  - Cómo hacer forks y clonar repositorios para trabajar en tu propia copia.
+  - Cómo crear y gestionar Pull Requests para contribuir al repositorio original.
+
+Estas prácticas y comandos te permitirán colaborar eficazmente en proyectos tanto internos como open source, mejorando la calidad del código y facilitando la integración de cambios.

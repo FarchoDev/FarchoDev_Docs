@@ -1,0 +1,171 @@
+# Módulo 11: Seguridad y Buenas Prácticas
+
+En este módulo, aprenderás sobre las mejores prácticas de seguridad al trabajar con Git y cómo proteger tu código y tus datos. También veremos buenas prácticas para mantener un repositorio organizado y eficiente.
+
+## 11.1. Seguridad en Git
+
+### Mantener tus Credenciales Seguras
+
+Es fundamental mantener tus credenciales seguras para evitar accesos no autorizados a tus repositorios.
+
+1. **Uso de SSH en lugar de HTTPS**
+
+   Configura Git para usar claves SSH en lugar de contraseñas para autenticarte en los repositorios remotos.
+
+   - **Generar una clave SSH**
+
+     ```bash
+     ssh-keygen -t ed25519 -C "tu_email@example.com"
+     ```
+
+   - **Agregar la clave SSH a tu agente SSH**
+
+     ```bash
+     eval "$(ssh-agent -s)"
+     ssh-add ~/.ssh/id_ed25519
+     ```
+
+   - **Agregar la clave SSH a tu cuenta de GitHub**
+
+     Copia el contenido de `~/.ssh/id_ed25519.pub` y agrégalo a tus claves SSH en GitHub.
+
+2. **Uso de un Administrador de Credenciales**
+
+   Utiliza un administrador de credenciales para almacenar tus credenciales de forma segura.
+
+   - **Instalar el Administrador de Credenciales de Git**
+
+     ```bash
+     git config --global credential.helper manager-core
+     ```
+
+### Evitar el Compromiso de Datos Sensibles
+
+1. **Usar un Archivo .gitignore**
+
+   Configura un archivo `.gitignore` para evitar que archivos sensibles o no deseados sean rastreados por Git.
+
+   ```plaintext
+   # .gitignore
+   .env
+   node_modules/
+   ```
+
+2. **Reescribir el Historial para Eliminar Datos Sensibles**
+
+   Si accidentalmente confirmas datos sensibles, puedes reescribir el historial de Git para eliminarlos.
+
+   - **Usar `git filter-branch`**
+
+     ```bash
+     git filter-branch --force --index-filter \
+       'git rm --cached --ignore-unmatch ruta/al/archivo' \
+       --prune-empty --tag-name-filter cat -- --all
+     ```
+
+   - **Uso de BFG Repo-Cleaner**
+
+     BFG Repo-Cleaner es una herramienta más rápida y fácil de usar para eliminar datos sensibles del historial de Git.
+
+     ```bash
+     bfg --delete-files 'ruta/al/archivo'
+     ```
+
+3. **Rotación de Credenciales**
+
+   Si comprometes tus credenciales, asegúrate de rotarlas inmediatamente.
+
+### Revisión de Permisos de Colaboradores
+
+Asegúrate de revisar y gestionar los permisos de los colaboradores en tu repositorio para limitar el acceso y las acciones que pueden realizar.
+
+## 11.2. Buenas Prácticas en Git
+
+### Escribir Mensajes de Commit Claros y Concisos
+
+Un buen mensaje de commit debe ser claro y descriptivo. Sigue estas reglas:
+
+- **Línea de Asunto**: Máximo 50 caracteres. Debe ser breve y clara.
+- **Descripción Opcional**: Proporciona más detalles si es necesario.
+
+Ejemplo:
+
+```plaintext
+Añade la validación de correo electrónico
+
+Se ha añadido una función para validar correos electrónicos en el formulario de registro.
+```
+
+### Uso de Branches Temáticas
+
+Utiliza branches temáticas para trabajar en nuevas características o correcciones de errores. Esto facilita la revisión de código y la gestión de versiones.
+
+- **Nombres de Branches Consistentes**
+
+  Utiliza una convención de nombres consistente, como:
+
+  ```plaintext
+  feature/nueva-caracteristica
+  bugfix/correccion-de-error
+  ```
+
+### Realizar Commits Pequeños y Frecuentes
+
+Realiza commits pequeños y frecuentes para que los cambios sean fáciles de revisar y entender. Esto también facilita la localización de errores.
+
+### Rebase en Lugar de Merge para Mantener un Historial Limpio
+
+Usa `git rebase` en lugar de `git merge` para mantener un historial de commits más lineal y limpio, especialmente en branches de características.
+
+```bash
+# Rebase la branch actual sobre la branch master
+git checkout feature/nueva-caracteristica
+git rebase master
+```
+
+## 11.3. Herramientas y Configuración para Mejorar la Seguridad y Buenas Prácticas
+
+### Configuración de Políticas de Branch
+
+Establece políticas de branch en tu repositorio para requerir revisiones de código y aprobaciones antes de permitir merges.
+
+1. **Configurar Protección de Branch en GitHub**
+
+   - Navega a la configuración de tu repositorio.
+   - Ve a "Branches" y agrega reglas de protección para tu branch principal.
+   - Requiere revisiones de pull requests y aprobaciones.
+
+### Uso de Integración Continua (CI) y Despliegue Continuo (CD)
+
+Implementa CI/CD para automatizar la construcción, pruebas y despliegue de tu código. Herramientas como GitHub Actions, Jenkins y Travis CI pueden ayudar a asegurar que el código es probado antes de ser desplegado.
+
+1. **Ejemplo de Workflow de GitHub Actions**
+
+   ```yaml
+   name: CI
+
+   on: [push, pull_request]
+
+   jobs:
+     build:
+       runs-on: ubuntu-latest
+
+       steps:
+       - uses: actions/checkout@v2
+       - name: Set up Node.js
+         uses: actions/setup-node@v2
+         with:
+           node-version: '14'
+       - run: npm install
+       - run: npm test
+   ```
+
+## Resumen
+
+En este módulo, hemos cubierto aspectos cruciales de seguridad y buenas prácticas en Git:
+
+- **Seguridad en Git**: Uso de SSH, administradores de credenciales, evitar el compromiso de datos sensibles y gestión de permisos de colaboradores.
+- **Buenas Prácticas**: Mensajes de commit claros, uso de branches temáticas, commits pequeños y frecuentes, y rebase en lugar de merge.
+- **Herramientas y Configuración**: Protección de branches, CI/CD y herramientas para mantener un flujo de trabajo seguro y eficiente.
+
+Estas prácticas y herramientas te ayudarán a mantener tu código seguro, limpio y bien organizado, mejorando la colaboración y la eficiencia en tu equipo.

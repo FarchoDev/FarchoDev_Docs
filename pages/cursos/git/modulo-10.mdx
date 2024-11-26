@@ -1,0 +1,191 @@
+# Módulo 10: Git Hooks y Automatización de Tareas
+
+En este módulo, exploraremos cómo utilizar Git hooks para automatizar tareas en tu flujo de trabajo. Los hooks de Git te permiten ejecutar scripts en diferentes puntos del ciclo de vida de los commits, lo que puede ayudarte a mejorar la calidad del código y a hacer cumplir las políticas del repositorio.
+
+## 10.1. Introducción a los Git Hooks
+
+Los Git hooks son scripts que Git ejecuta antes o después de eventos como commits, pushes y merges. Estos scripts pueden ser utilizados para automatizar tareas como la validación de mensajes de commit, la ejecución de pruebas y la verificación de estilo de código.
+
+### Tipos de Git Hooks
+
+- **Client-side hooks**: Estos se ejecutan en el lado del desarrollador antes o después de operaciones como commit y merge. Ejemplos incluyen `pre-commit`, `prepare-commit-msg`, `commit-msg`, `post-commit`, etc.
+- **Server-side hooks**: Estos se ejecutan en el lado del servidor antes o después de operaciones de push. Ejemplos incluyen `pre-receive`, `update`, `post-receive`, etc.
+
+## 10.2. Hooks Más Comunes y Su Uso
+
+### pre-commit
+
+Este hook se ejecuta antes de que un commit sea creado. Puedes usarlo para verificar el código, realizar linters o ejecutar pruebas.
+
+```bash
+#!/bin/sh
+# pre-commit hook example
+# Exit on any error
+set -e
+
+# Run tests
+npm test
+
+# Run linter
+npm run lint
+```
+
+Para instalar este hook, crea un archivo llamado `pre-commit` en el directorio `.git/hooks/` y hazlo ejecutable:
+
+```bash
+chmod +x .git/hooks/pre-commit
+```
+
+### commit-msg
+
+Este hook se ejecuta después de que el mensaje de commit ha sido creado, pero antes de que el commit sea finalizado. Puedes usarlo para verificar el formato del mensaje de commit.
+
+```bash
+#!/bin/sh
+# commit-msg hook example
+COMMIT_MSG_FILE=$1
+COMMIT_MSG=$(cat $COMMIT_MSG_FILE)
+
+if ! echo "$COMMIT_MSG" | grep -q "^[A-Z][A-Za-z0-9 ]\{10,\}$"; then
+  echo "El mensaje de commit debe comenzar con una letra mayúscula y tener al menos 10 caracteres."
+  exit 1
+fi
+```
+
+Instálalo en `.git/hooks/commit-msg` y hazlo ejecutable:
+
+```bash
+chmod +x .git/hooks/commit-msg
+```
+
+### post-commit
+
+Este hook se ejecuta después de que un commit ha sido creado. Puedes usarlo para notificaciones o tareas de limpieza.
+
+```bash
+#!/bin/sh
+# post-commit hook example
+# Notify team via Slack
+curl -X POST -H 'Content-type: application/json' --data '{"text":"New commit on branch $(git rev-parse --abbrev-ref HEAD): $(git log -1 --pretty=%B)"}' https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
+```
+
+Instálalo en `.git/hooks/post-commit` y hazlo ejecutable:
+
+```bash
+chmod +x .git/hooks/post-commit
+```
+
+### pre-receive
+
+Este hook se ejecuta en el servidor antes de aceptar cambios enviados por un push. Puedes usarlo para validar que los cambios cumplen con las políticas del proyecto.
+
+```bash
+#!/bin/sh
+# pre-receive hook example
+while read oldrev newrev refname
+do
+  if ! ./run_tests.sh; then
+    echo "Tests failed, push rejected"
+    exit 1
+  fi
+done
+```
+
+Instálalo en el servidor en el directorio `hooks` del repositorio y hazlo ejecutable:
+
+```bash
+chmod +x hooks/pre-receive
+```
+
+## 10.3. Automatización de Tareas con Git Hooks
+
+### Automatizar la Ejecución de Pruebas
+
+Configura el hook `pre-push` para ejecutar pruebas automáticamente antes de permitir un push:
+
+```bash
+#!/bin/sh
+# pre-push hook example
+# Exit on any error
+set -e
+
+# Run tests
+npm test
+```
+
+Instálalo en `.git/hooks/pre-push` y hazlo ejecutable:
+
+```bash
+chmod +x .git/hooks/pre-push
+```
+
+### Verificación de Estilo de Código
+
+Usa el hook `pre-commit` para verificar el estilo del código antes de permitir un commit:
+
+```bash
+#!/bin/sh
+# pre-commit hook example
+# Exit on any error
+set -e
+
+# Run linter
+npm run lint
+```
+
+## 10.4. Uso de Herramientas para Simplificar Git Hooks
+
+### Husky
+
+Husky es una herramienta que facilita la gestión de Git hooks en proyectos JavaScript. Puedes configurarlo fácilmente en tu proyecto:
+
+1. **Instalar Husky**
+
+   ```bash
+   npm install husky --save-dev
+   ```
+
+2. **Configurar Husky**
+
+   Añade un script en tu `package.json` para instalar los hooks de Husky:
+
+   ```json
+   "scripts": {
+     "prepare": "husky install"
+   }
+   ```
+
+3. **Añadir Hooks**
+
+   Usa Husky para añadir un hook `pre-commit`:
+
+   ```bash
+   npx husky add .husky/pre-commit "npm test"
+   ```
+
+### Prettier
+
+Prettier es una herramienta de formateo de código que puede ser integrada con Git hooks para asegurar que el código sigue un estilo consistente.
+
+1. **Instalar Prettier**
+
+   ```bash
+   npm install prettier --save-dev
+   ```
+
+2. **Configurar un Hook de Prettier con Husky**
+
+   ```bash
+   npx husky add .husky/pre-commit "npx prettier --check ."
+   ```
+
+## Resumen
+
+En este módulo, hemos cubierto el uso de Git hooks para automatizar tareas en tu flujo de trabajo:
+
+- **Introducción a los Git Hooks**: Aprender los conceptos básicos y la diferencia entre client-side y server-side hooks.
+- **Hooks Comunes**: Ejemplos prácticos de cómo usar hooks como `pre-commit`, `commit-msg`, `post-commit`, y `pre-receive`.
+- **Automatización de Tareas**: Ejemplos de automatización para la ejecución de pruebas y verificación de estilo de código.
+- **Herramientas de Simplificación**: Uso de herramientas como Husky y Prettier para facilitar la gestión de Git hooks y mantener un código limpio y consistente.
+
+Estos conocimientos te permitirán mejorar la calidad y consistencia del código en tu equipo, automatizando tareas críticas y asegurando que las políticas del proyecto se cumplan automáticamente.

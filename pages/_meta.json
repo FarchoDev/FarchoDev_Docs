@@ -9,5 +9,7 @@
     "type": "page",
     "href": "https://farcho-dev-blog.vercel.app/",
     "newWindow": true
-  }
+  },
+  "cursos": "Cursos",
+  "documentacion": "Documentación Sena"
 }
