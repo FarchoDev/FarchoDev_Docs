@@ -1,0 +1,147 @@
+# Módulo 7: Gestión Avanzada de Ramas y Resolución de Conflictos en Git
+
+En este módulo, exploraremos técnicas avanzadas para la gestión de ramas y la resolución de conflictos en Git. Aprenderás a manejar situaciones complejas y a mantener un flujo de trabajo eficiente incluso cuando trabajas con múltiples ramas y colaboradores.
+
+## 7.1. Gestión Avanzada de Ramas
+
+### Rebases Interactivos
+
+El rebase interactivo te permite reescribir el historial de commits de una rama. Es útil para limpiar y organizar tus commits antes de fusionar una rama en la principal.
+
+1. **Iniciar un Rebase Interactivo**
+
+   ```bash
+   git rebase -i HEAD~n
+   ```
+
+   Donde `n` es el número de commits que deseas revisar.
+
+2. **Editar Commits**
+
+   En el editor que se abre, puedes seleccionar acciones como `pick`, `edit`, `squash`, `reword`, etc.
+
+3. **Completar el Rebase**
+
+   Una vez que hayas realizado los cambios deseados, guarda y cierra el editor. Git aplicará los cambios y te guiará a través de cualquier conflicto que necesite resolverse.
+
+### Rebase vs Merge
+
+El rebase y el merge son dos enfoques diferentes para integrar cambios. 
+
+- **Merge**: Crea un nuevo commit que combina dos ramas.
+- **Rebase**: Mueve o combina una secuencia de commits en una nueva base.
+
+1. **Realizar un Merge**
+
+   ```bash
+   git checkout main
+   git merge feature-branch
+   ```
+
+2. **Realizar un Rebase**
+
+   ```bash
+   git checkout feature-branch
+   git rebase main
+   ```
+
+### Cherry-Picking
+
+El cherry-picking te permite aplicar un commit específico de una rama a otra.
+
+1. **Seleccionar un Commit**
+
+   ```bash
+   git cherry-pick <commit-hash>
+   ```
+
+### Ejemplo Práctico de Cherry-Picking
+
+1. **Identificar el Commit**
+
+   ```bash
+   git log
+   ```
+
+   Copia el hash del commit que deseas aplicar.
+
+2. **Aplicar el Commit a otra Rama**
+
+   ```bash
+   git checkout main
+   git cherry-pick a1b2c3d4
+   ```
+
+## 7.2. Resolución de Conflictos
+
+Los conflictos ocurren cuando Git no puede fusionar automáticamente los cambios. Aquí aprenderás cómo resolverlos.
+
+### Conflictos Durante el Merge
+
+1. **Iniciar un Merge**
+
+   ```bash
+   git checkout main
+   git merge feature-branch
+   ```
+
+2. **Resolver Conflictos**
+
+   Git marcará los archivos en conflicto. Abre cada archivo y busca las marcas de conflicto (`<<<<<<<`, `=======`, `>>>>>>>`).
+
+3. **Editar y Resolver**
+
+   Edita el archivo para resolver el conflicto, eliminando las marcas y eligiendo los cambios correctos.
+
+4. **Agregar y Commit**
+
+   ```bash
+   git add <archivo-resuelto>
+   git commit
+   ```
+
+### Conflictos Durante el Rebase
+
+1. **Iniciar un Rebase**
+
+   ```bash
+   git checkout feature-branch
+   git rebase main
+   ```
+
+2. **Resolver Conflictos**
+
+   Durante el rebase, Git pausará en cada conflicto. Resuelve los conflictos de la misma manera que en un merge.
+
+3. **Continuar el Rebase**
+
+   ```bash
+   git rebase --continue
+   ```
+
+### Herramientas de Resolución de Conflictos
+
+Utiliza herramientas gráficas como `kdiff3`, `meld`, o integraciones en IDEs para facilitar la resolución de conflictos.
+
+1. **Configurar una Herramienta de Mergeo**
+
+   ```bash
+   git config --global merge.tool kdiff3
+   ```
+
+2. **Usar la Herramienta de Mergeo**
+
+   ```bash
+   git mergetool
+   ```
+
+## Resumen
+
+En este módulo, has aprendido técnicas avanzadas para la gestión de ramas y la resolución de conflictos en Git:
+
+- **Rebases Interactivos:** Para limpiar y organizar el historial de commits.
+- **Rebase vs Merge:** Entender cuándo usar cada uno.
+- **Cherry-Picking:** Aplicar commits específicos a otras ramas.
+- **Resolución de Conflictos:** Manejar conflictos durante merge y rebase.
+
+Estas habilidades te permitirán mantener un flujo de trabajo limpio y eficiente, incluso en situaciones complejas de colaboración en proyectos.

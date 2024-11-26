@@ -1,0 +1,19 @@
+{
+    "content"  :  "Contenido del curso",
+    "modulo-1" : "Módulo 1: Introducción a GitHub",
+    "modulo-2" : "Módulo 2: Fundamentos de Git",
+    "modulo-3" : "Módulo 3: Trabajo con Repositorios Remotos",
+    "modulo-4" : "Módulo 4: Colaboración en GitHub",
+    "modulo-5" : "Módulo 5: Herramientas Avanzadas de GitHub",
+    "modulo-6" : "Módulo 6: Mejores Prácticas y Consejos",
+    "modulo-7" : "Módulo 7: Casos de Uso y Ejemplos Prácticos",
+    "modulo-8" : "Módulo 8: Recursos Adicionales y Comunidad",
+    "modulo-9" : "Módulo 9: Gestión Eficiente de Ramas",
+    "modulo-10": "Módulo 10: Gestión de Proyectos con GitHub Projects",
+    "modulo-11": "Módulo 11: Personalización y Automatización Avanzada",
+    "modulo-12": "Módulo 12: Seguridad y Auditoría en GitHub",
+    "modulo-13": "Módulo 13: Gestión de Documentación con GitHub",
+    "modulo-14": "Módulo 14: Análisis y Visualización de Datos con GitHub",
+    "modulo-15": "Módulo 15: Extensibilidad de GitHub: Integración con APIs"
+  }
+  
