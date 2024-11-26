@@ -5,9 +5,9 @@
     "type": "page"
   },
   "contact": {
-    "title": "Contact ↗",
+    "title": "Blog ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://farcho-dev-blog.vercel.app/",
     "newWindow": true
   }
 }
