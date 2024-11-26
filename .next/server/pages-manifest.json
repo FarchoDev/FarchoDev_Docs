@@ -3,6 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/cursos/git/content": "pages/cursos/git/content.js",
-  "/cursos/git/modulo-1": "pages/cursos/git/modulo-1.js"
+  "/cursos/conventional-commits/modulo-2": "pages/cursos/conventional-commits/modulo-2.js"
 }

@@ -1,0 +1,45 @@
+# Módulo 2: Conventional Commits en la Práctica
+
+En este módulo, vamos a profundizar en cómo aplicar Conventional Commits en tu día a día como desarrollador y cómo integrar estas prácticas en tu flujo de trabajo.
+
+## Configuración de tu editor de código (Visual Studio)
+
+Para facilitar la escritura de mensajes de commit convencionales, podemos configurar nuestro editor de código para que nos brinde asistencia. En Visual Studio, existen varias extensiones que pueden ayudarte:
+
+* **Conventional Commits:** Esta extensión te proporciona un menú interactivo para seleccionar el tipo de commit, el scope y escribir el mensaje.
+* **GitLens:** Aunque no está diseñada específicamente para Conventional Commits, GitLens ofrece una gran cantidad de funcionalidades para trabajar con Git, incluyendo la visualización del historial de commits y la comparación de archivos.
+
+## **Pasos básicos para configurar Visual Studio**
+
+1. **Instalar la extensión:** Busca la extensión "Conventional Commits" en el marketplace de Visual Studio Code y añádela a tus extensiones.
+2. **Configurar preferencias (opcional):** Algunas extensiones te permiten personalizar la apariencia y el comportamiento, como el conjunto de tipos de commit disponibles.
+
+**Ejemplo de uso:**
+
+Al momento de realizar un commit, la extensión te mostrará un menú donde podrás seleccionar el tipo de commit, el scope y escribir el mensaje. Esto te ayudará a mantener una estructura consistente en tus commits.
+
+## Integración con GitHub
+
+GitHub ofrece una gran cantidad de herramientas que se pueden integrar con Conventional Commits para automatizar tareas y mejorar la colaboración. Algunas de estas herramientas incluyen:
+
+* **Acciones de GitHub:** Puedes crear workflows personalizados para automatizar la generación de changelogs, la creación de releases y otras tareas.
+* **Etiquetas:** GitHub te permite crear etiquetas basadas en los tipos de commit, lo que facilita la identificación de releases y el seguimiento de cambios.
+* **Protección de ramas:** Puedes configurar tu repositorio para requerir que los commits cumplan con ciertas reglas antes de fusionarlos en una rama protegida.
+
+## Conventional Commits y SemVer
+
+Semantic Versioning (SemVer) es un esquema de versionado de software que utiliza números de versión para indicar los cambios realizados en una biblioteca o aplicación. Conventional Commits se alinea perfectamente con SemVer, ya que los tipos de commit permiten determinar automáticamente el incremento de la versión:
+
+* **Major version:** Se incrementa cuando se introducen cambios que rompen la compatibilidad hacia atrás (breaking changes).
+* **Minor version:** Se incrementa cuando se añaden nuevas funcionalidades que mantienen la compatibilidad hacia atrás.
+* **Patch version:** Se incrementa cuando se corrigen errores sin introducir nuevas funcionalidades o cambios que rompan la compatibilidad.
+
+## Mejores prácticas
+
+* **Ser conciso:** Los mensajes de commit deben ser claros y concisos, pero lo suficientemente detallados para explicar el cambio realizado.
+* **Utilizar el tiempo presente:** Escribe los mensajes de commit como si estuvieras dando una instrucción (ej: "Add new feature").
+* **Evitar los puntos finales:** No es necesario utilizar puntos al final de los mensajes.
+* **Utilizar el scope de manera efectiva:** El scope te permite especificar el área del código afectada por el cambio, lo que facilita la búsqueda de commits relacionados.
+* **Incluir información relevante en el footer:** Si es necesario, puedes incluir información adicional en el footer, como números de issues o enlaces a documentación.
+
+En el próximo módulo, exploraremos casos de uso más avanzados de Conventional Commits y cómo aplicar estas prácticas en equipos de desarrollo.

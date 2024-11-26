@@ -1,4 +1,5 @@
 {
     "git": "Git",
-    "github": "Github"
+    "github": "Github",
+    "conventional-commits": "Conventional Commits"
 }

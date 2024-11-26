@@ -1,0 +1,52 @@
+# Módulo 3: Casos de Uso Avanzados de Conventional Commits
+
+En este módulo, exploraremos escenarios más complejos y cómo aplicar Conventional Commits de manera efectiva en diversos contextos.
+
+## Conventional Commits en Equipos
+
+Cuando trabajas en equipo, es fundamental mantener una coherencia en los mensajes de commit para facilitar la colaboración y evitar confusiones. Aquí te presento algunas recomendaciones:
+
+* **Lineamientos claros:** Establezcan un conjunto de lineamientos y reglas para los mensajes de commit dentro de su equipo. Esto garantizará que todos sigan la misma convención.
+* **Revisiones de código:** Utilicen herramientas de revisión de código para asegurarse de que los mensajes de commit cumplan con los estándares establecidos.
+* **Herramientas de colaboración:** Empleen herramientas como GitHub Issues y Pull Requests para vincular los commits con las tareas y discutir los cambios propuestos.
+
+## Automatización con Scripts
+
+La automatización es clave para aprovechar al máximo los beneficios de Conventional Commits. Puedes crear scripts personalizados para:
+
+* **Generar changelogs:** Crea un changelog detallado a partir de tus commits, agrupando los cambios por tipo y versión.
+* **Crear releases:** Automatiza la creación de releases en plataformas como GitHub, incluyendo la generación de etiquetas y notas de lanzamiento.
+* **Validar los mensajes de commit:** Crea un script para verificar que los mensajes de commit cumplan con la estructura y convención establecidas.
+
+**Ejemplo de script en Bash para generar un changelog:**
+
+```bash
+#!/bin/bash
+
+# Obtener los últimos N commits
+commits=$(git log --pretty=format:'%s' -n 5)
+
+# Iterar sobre los commits y agruparlos por tipo
+for commit in $commits; do
+  type=$(echo $commit | cut -d'(' -f1)
+  echo "$type:"
+  echo "$commit"
+  echo ""
+done
+```
+
+## Herramientas Adicionales
+
+Existen diversas herramientas y plugins que pueden ayudarte a trabajar de manera más eficiente con Conventional Commits:
+
+* **Commitizen:** Una herramienta de línea de comandos que te guía en la creación de mensajes de commit convencionales.
+* **Semantic-release:** Una herramienta que automatiza el proceso de release basado en Conventional Commits.
+* **Lint esta tus commits:** Un linter para mensajes de commit que te ayuda a detectar errores y a mejorar la calidad de tus commits.
+
+## Casos de Uso Específicos
+
+* **Proyectos de gran escala:** En proyectos grandes, es fundamental utilizar Conventional Commits para mantener un historial de cambios claro y conciso.
+* **Proyectos open source:** Conventional Commits es una práctica común en proyectos open source, ya que facilita la contribución de otros desarrolladores.
+* **Proyectos con múltiples colaboradores:** En equipos distribuidos, Conventional Commits ayuda a mantener una comunicación efectiva y a garantizar la calidad del código.
+
+En el próximo módulo, realizaremos ejercicios prácticos para consolidar tus conocimientos y aplicar Conventional Commits en proyectos reales.

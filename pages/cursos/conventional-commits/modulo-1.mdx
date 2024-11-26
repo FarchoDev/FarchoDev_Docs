@@ -1,0 +1,54 @@
+# Módulo 1: Fundamentos de Conventional Commits
+
+## **¿Por qué Conventional Commits?**
+
+Imagina tu historial de commits como un diario de desarrollo. ¿Te gustaría que ese diario fuera claro, conciso y fácil de entender, tanto para ti como para tus compañeros de equipo? Conventional Commits es la solución. Al seguir una estructura específica para tus mensajes de commit, podrás:
+
+* **Mejorar la comunicación:** Todos en tu equipo entenderán claramente el propósito de cada cambio en el código.
+* **Automatizar tareas:** Podrás generar changelogs, versiones y otros documentos de manera automática, ahorrando tiempo y reduciendo errores.
+* **Facilitar la colaboración:** Al tener un historial de commits claro, será más fácil trabajar en equipo y realizar revisiones de código.
+* **Aumentar la calidad del código:** Al escribir mensajes de commit detallados, estarás más consciente de los cambios que realizas y podrás detectar posibles errores.
+
+## **Estructura básica de un mensaje de commit**
+
+Un mensaje de commit convencional sigue esta estructura:
+
+```
+<tipo>(<scope>): <subject>
+<cuerpo>
+
+<pie de página>
+```
+
+* **Tipo:** Indica el tipo de cambio que se realizó (feat, fix, docs, etc.).
+* **Scope (opcional):** Especifica el área del código afectada por el cambio.
+* **Subject:** Describe brevemente el cambio realizado.
+* **Body (opcional):** Proporciona más detalles sobre el cambio.
+* **Footer (opcional):** Incluye información adicional, como números de issues o breaking changes.
+
+## **Tipos de commit más comunes**
+
+* **feat:** Nueva funcionalidad.
+* **fix:** Corrección de errores.
+* **docs:** Cambios en la documentación.
+* **style:** Cambios que no afectan la funcionalidad (espaciado, formato, etc.).
+* **refactor:** Cambios en el código que no añaden nuevas funcionalidades ni corrigen errores (mejora de la estructura, etc.).
+* **test:** Añadido, eliminado o modificado tests.
+* **chore:** Otros cambios que no encajan en las categorías anteriores (configuración, herramientas, etc.).
+
+**Ejemplo:**
+
+```
+feat(login): Add forgot password functionality
+Allows users to reset their password if they forget it.
+```
+
+**Ejercicio**
+
+Intenta escribir mensajes de commit para los siguientes cambios:
+
+* Añadiste una nueva función para calcular el factorial de un número.
+* Corregiste un bug que causaba que la aplicación se bloqueara en ciertas condiciones.
+* Actualizaste el archivo README.md para incluir nuevas instrucciones.
+
+En el próximo módulo, exploraremos en detalle cómo configurar tu editor de código (Visual Studio) para que te ayude a escribir mensajes de commit convencionales.
