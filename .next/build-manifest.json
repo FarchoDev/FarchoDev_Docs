@@ -25,10 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/documentacion/actividades-de-documentacion-y-entrega-de-software-en-procesos-de-implantacion/pruebas-y-actas-de-entrega": [
+    "/documentacion/aplicacion-del-paradigma-orientado-a-objetos/4-comunicacion-entre-clases": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/documentacion/actividades-de-documentacion-y-entrega-de-software-en-procesos-de-implantacion/pruebas-y-actas-de-entrega.js"
+      "static/chunks/pages/documentacion/aplicacion-del-paradigma-orientado-a-objetos/4-comunicacion-entre-clases.js"
     ]
   },
   "ampFirstPages": []

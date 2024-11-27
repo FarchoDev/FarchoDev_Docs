@@ -2,5 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/documentacion/actividades-de-documentacion-y-entrega-de-software-en-procesos-de-implantacion/pruebas-y-actas-de-entrega": "pages/documentacion/actividades-de-documentacion-y-entrega-de-software-en-procesos-de-implantacion/pruebas-y-actas-de-entrega.js"
+  "/documentacion/aplicacion-del-paradigma-orientado-a-objetos/4-comunicacion-entre-clases": "pages/documentacion/aplicacion-del-paradigma-orientado-a-objetos/4-comunicacion-entre-clases.js"
 }
