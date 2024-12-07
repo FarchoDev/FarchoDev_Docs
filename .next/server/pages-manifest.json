@@ -2,5 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/documentacion/aplicacion-del-paradigma-orientado-a-objetos/4-comunicacion-entre-clases": "pages/documentacion/aplicacion-del-paradigma-orientado-a-objetos/4-comunicacion-entre-clases.js"
+  "/documentacion/actividades-de-documentacion-y-entrega-de-software-en-procesos-de-implantacion/mantenimiento-de-software": "pages/documentacion/actividades-de-documentacion-y-entrega-de-software-en-procesos-de-implantacion/mantenimiento-de-software.js"
 }
