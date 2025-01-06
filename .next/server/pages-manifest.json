@@ -2,5 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/documentacion/actividades-de-documentacion-y-entrega-de-software-en-procesos-de-implantacion/mantenimiento-de-software": "pages/documentacion/actividades-de-documentacion-y-entrega-de-software-en-procesos-de-implantacion/mantenimiento-de-software.js"
+  "/biblioteca": "pages/biblioteca.js",
+  "/cursos/git/modulo-2": "pages/cursos/git/modulo-2.js",
+  "/cursos/git/content": "pages/cursos/git/content.js",
+  "/cursos/git/modulo-1": "pages/cursos/git/modulo-1.js",
+  "/": "pages/index.js"
 }
