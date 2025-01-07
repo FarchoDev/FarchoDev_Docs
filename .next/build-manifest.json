@@ -15,11 +15,6 @@
   ],
   "rootMainFiles": [],
   "pages": {
-    "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -30,25 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/biblioteca": [
+    "/documentacion/conceptos-basicos-de-redes-y-networking/7-recursos-compartidos": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/biblioteca.js"
-    ],
-    "/cursos/git/content": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/cursos/git/content.js"
-    ],
-    "/cursos/git/modulo-1": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/cursos/git/modulo-1.js"
-    ],
-    "/cursos/git/modulo-2": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/cursos/git/modulo-2.js"
+      "static/chunks/pages/documentacion/conceptos-basicos-de-redes-y-networking/7-recursos-compartidos.js"
     ]
   },
   "ampFirstPages": []
