@@ -2,5 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/documentacion/conceptos-basicos-de-redes-y-networking/7-recursos-compartidos": "pages/documentacion/conceptos-basicos-de-redes-y-networking/7-recursos-compartidos.js"
+  "/": "pages/index.js",
+  "/biblioteca": "pages/biblioteca.js"
 }
